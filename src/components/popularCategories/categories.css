@@ -1,0 +1,61 @@
+.popular-categories {
+    text-align: center;
+    padding: 50px 20px;
+    background: #ffffff;
+}
+
+.popular-categories h2 { /*this is the text that says popular categories/* */
+    font-size: 28px;
+    font-family: 'Abril Fatface', cursive;
+    color: black;
+}
+
+.popular-categories p {
+    font-size: 16px;
+    color: black;
+    margin-bottom: 30px;
+}
+
+.categories-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.category-card {
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 250px;
+    transition: transform 0.3s;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(135deg, #ff4d4d, #ff99cc); /* Hot pinkish gradient */
+}
+
+.category-card img {
+    width:100%;
+    border-radius:10px;
+}
+
+.category-content h3 { /*this is for the writing inside categories/**/
+    font-size: 20px;
+    color: black;
+    margin: 10px 0 5px;
+}
+
+.category-content p {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.rating {
+    font-size: 18px;
+    color: gold;
+}
