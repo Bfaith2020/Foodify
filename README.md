@@ -1,15 +1,23 @@
-# Getting Started with Create React App
+# Foodify
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Foodify is a React-based web application designed to help users discover and share delicious recipes. The app features a clean and responsive design, showcasing popular food categories, a hero section, and more.
+
+## Features
+
+- **Hero Section**: Highlights the app's purpose with an engaging image and call-to-action.
+- **Popular Categories**: Displays a list of popular food categories with images and descriptions.
+- **Footer**: Provides navigation links and additional information about the app.
+- **Contact Us**: A form for users to get in touch with the team.
+- **About Us**: Information about the mission and vision of Foodify.
+
+## Project Structure
+
+The project is organized as follows:
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
