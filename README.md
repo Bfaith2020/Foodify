@@ -1,5 +1,5 @@
 # Foodify
-Project Link : https://67d94f96a619a4fdc4d602cc--fluffy-dragon-472e2f.netlify.app/
+Project Link : https://fluffy-dragon-472e2f.netlify.app/
 Foodify is a React-based web application designed to help users discover and share delicious recipes. The app features a clean and responsive design, showcasing popular food categories, a hero section, and more.
 
 ## Features
