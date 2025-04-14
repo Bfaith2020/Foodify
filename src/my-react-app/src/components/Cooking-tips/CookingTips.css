@@ -1,0 +1,57 @@
+/* Cooking Tips Section */
+.cooking-tips {
+    background: #ff4d4d; /* Solid pink background */
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 800px;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.cooking-tips ul {
+    list-style: none;
+    padding: 0;
+}
+
+.cooking-tips li {
+    font-size: 1.2rem;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.tip-item {
+    margin: 10px 0;
+    text-align: left;
+}
+
+.tip-title {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1.2rem;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.tip-title:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.tip-content {
+    display: none; /* Hidden by default */
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 5px;
+    font-size: 1rem;
+    color: rgb(0, 0, 0);
+    background:white;
+}

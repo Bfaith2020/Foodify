@@ -1,0 +1,67 @@
+.recipe-filter {
+    padding: 20px 20px; /* Reduced from 60px to 20px */
+    background-color: #ffffff;
+    margin-top: -30px; /* Added negative margin to pull section up */
+}
+
+.filter-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.filter-container h2 {
+    font-family: 'Abril Fatface', cursive;
+    font-size: 2.5rem;
+    color: #000000;
+    margin-bottom: 30px;
+}
+
+.filter-options {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.filter-group h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #000000;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    border: 2px solid #ff4d4d;
+    border-radius: 25px;
+    background: transparent;
+    color: #ff4d4d;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background: #ff4d4d;
+    color: white;
+}
+
+.filter-btn.active {
+    background: #ff4d4d;
+    color: white;
+}
+
+.filtered-recipes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
