@@ -1,54 +1,76 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./search.css";
 
 const Search = () => {
+  const API_KEY = "99332e3f-87af-4409-b742-08afad63177c";
+  const BASE_URL = "https://forkify-api.herokuapp.com/api/v2/recipes";
+
+  // Local state for search query, meal results, selected meal details, reviews, and review text.
   const [query, setQuery] = useState("");
   const [meals, setMeals] = useState([]);
   const [selectedMeal, setSelectedMeal] = useState(null);
   const [reviews, setReviews] = useState({});
   const [newReview, setNewReview] = useState("");
 
-  useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const searchQuery = urlParams.get("query");
-    if (searchQuery) {
-      setQuery(searchQuery);
-      fetchMeals(searchQuery);
-    }
-  }, []);
-
-  const fetchMeals = async (searchQuery) => {
-    if (!searchQuery) return;
+  // Handle search button click by calling the API and updating the meals state.
+  const handleSearch = async () => {
+    if (!query.trim()) return;
     try {
-      const response = await fetch(
-        `https://www.themealdb.com/api/json/v1/1/filter.php?i=${searchQuery}`
-      );
+      const response = await fetch(`${BASE_URL}?search=${query}&key=${API_KEY}`);
       const data = await response.json();
-      setMeals(data.meals || []);
+
+      if (data.status !== "success" || !data.data?.recipes) {
+        throw new Error("No recipes found");
+      }
+
+      // Transform the forkify recipe data into a format that matches the render expectation.
+      const transformedMeals = data.data.recipes.map((recipe) => ({
+        idMeal: recipe.id,
+        strMeal: recipe.title,
+        strMealThumb: recipe.image_url,
+        strCategory: recipe.publisher, // using publisher as a placeholder for category
+        strInstructions: recipe.instructions || "No instructions available.",
+        strYoutube: recipe.source_url || "",
+      }));
+      setMeals(transformedMeals);
     } catch (error) {
-      console.error("Error fetching meals:", error);
+      console.error("Error:", error);
+      setMeals([]);
+      // Optionally you might add a state to display the error.
     }
   };
 
-  const fetchMealDetails = async (mealId) => {
+  // Fetch detailed meal info. This version fetches from the same API using the recipe ID.
+  const fetchMealDetails = async (idMeal) => {
     try {
-      const response = await fetch(
-        `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`
-      );
+      const response = await fetch(`${BASE_URL}/${idMeal}?key=${API_KEY}`);
       const data = await response.json();
-      setSelectedMeal(data.meals[0]);
+      if (data.status !== "success" || !data.data?.recipe) {
+        throw new Error("Failed to fetch recipe details");
+      }
+      const recipe = data.data.recipe;
+      // Transform details in a similar manner
+      const mealDetails = {
+        idMeal: recipe.id,
+        strMeal: recipe.title,
+        strMealThumb: recipe.image_url,
+        strCategory: recipe.publisher,
+        strInstructions: recipe.instructions || "No instructions provided.",
+        strYoutube: recipe.source_url || "",
+      };
+      setSelectedMeal(mealDetails);
     } catch (error) {
-      console.error("Error fetching meal details:", error);
+      console.error(error);
     }
   };
 
-  const handleSearch = () => {
-    fetchMeals(query);
-  };
-
-  const handleReviewSubmit = (mealId) => {
-    if (newReview.trim() === "") return;
-    setReviews({ ...reviews, [mealId]: [...(reviews[mealId] || []), newReview] });
+  // Update reviews for a meal.
+  const handleReviewSubmit = (idMeal) => {
+    if (!newReview.trim()) return;
+    setReviews((prevReviews) => {
+      const mealReviews = prevReviews[idMeal] || [];
+      return { ...prevReviews, [idMeal]: [...mealReviews, newReview] };
+    });
     setNewReview("");
   };
 
@@ -64,7 +86,9 @@ const Search = () => {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
-          <button className="search-btn" onClick={handleSearch}>Search</button>
+          <button className="search-btn" onClick={handleSearch}>
+            Search
+          </button>
         </div>
       </div>
 
@@ -103,11 +127,17 @@ const Search = () => {
           <div className="recipe-meal-img">
             <img src={selectedMeal.strMealThumb} alt={selectedMeal.strMeal} />
           </div>
-          <div className="recipe-link">
-            <a href={selectedMeal.strYoutube} target="_blank" rel="noopener noreferrer">
-              Watch Video
-            </a>
-          </div>
+          {selectedMeal.strYoutube && (
+            <div className="recipe-link">
+              <a
+                href={selectedMeal.strYoutube}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Watch Video
+              </a>
+            </div>
+          )}
 
           <div className="meal-reviews">
             <h3>User Reviews:</h3>

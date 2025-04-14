@@ -1,630 +1,280 @@
-/* General Styles */
-body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f8f8;
-}
-
-/* Header */
-.nav-bar {
-    display: flex;
-    justify-content: space-between;
-    position: fixed; /* Changed from relative to fixed */
-    top: 0; /* Stick to top */
+/* Header Styles */
+header {
+    position: fixed;
+    top: 0;
     left: 0;
-    width: 100%; /* Full width */
-    z-index: 1000;
-    align-items: center;
-    padding: 10px 15px;
+    right: 0;
     background-color: white;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.logo-container {
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    height: 80px;  /* Increased height */
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    padding: 0 20px;
 }
 
-
-.logo {
-    font-family: 'Abril Fatface', cursive;
-    font-size: 30px;
+body {
+    padding-top: 80px;  /* Match header height */
     margin: 0;
 }
 
-.logo .trademark {
-    font-size: 20px; /* Increase the font size */
-    font-weight: 200; /* Make the font weight lighter */
-    vertical-align: super;
+/* Search Recipes Section */
+.search-recipes {
+    text-align: center;
+    margin-top: 40px;  /* Add margin for spacing below navbar */
+    padding: 20px;
+    background-color: #f9f9f9;
+    min-height: calc(100vh - 100px);
 }
 
-/* Add to your existing CSS */
-.logo-link {
-    text-decoration: none;
-    color: inherit;
+.search-recipes h2 {
+    font-family: 'Abril Fatface', cursive;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#recipe-search-form {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
-.logo-link:hover {
-    opacity: 0.9;
-    cursor: pointer;
-}
-
-
-.tagline {
-    font-size: 12px;
-    font-family: 'Montserrat', sans-serif;
-    margin: 5px 0 0 0;
-}
-
-.tagline .trademark {
-    font-size: 11px; /* Adjust the font size if needed */
-    font-weight: 300; /* Make the font weight lighter */
-    vertical-align: super;
-    margin-left: 3px; /* Add space between the tagline and trademark */
-}
-
-.heart-icon-container {
-    position: absolute;
-    font-size: 1.3rem;
-    right: 15rem;    /* Add space between the heart icon and the search bar */
-    display:flex;
-    width: 30px;
-    height: 30px;
-    border-radius: 5px;
-}
-
-
-.heart-icon-container .fa-heart {
-    color:#ffb4b1; /* Set the heart icon color to #E59C99 */
-    border-radius: 50%;
-    padding: 2px;
-}
-.heart-icon-container .fa-heart:hover {
-    color: #ff4d4d; /* Reddish shade of pink on hover and active */
-    cursor: pointer;
-}
-
-
-.search-bar {
-    padding: 8px;
-    width: 150px;
+#search-input {
+    padding: 10px;
+    width: 300px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
-    margin-right: 10px; /* Add margin to create space between the search bar and other elements */
-}
-
-.search-bar-container {
-    display: flex;
-    align-items: center;
-    margin-right: 16px; /* Add margin to create space between the search bar and other elements */
+    font-size: 16px;
 }
 
 .search-btn {
-    background-color: #ffffff;
-    color: #ffb4b1;
+    background-color: #ff4d4d;
+    color: white;
     border: none;
-    padding: 5px 12px;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .search-btn:hover {
-    background-color: #ff3333;
+    background-color: #e65a50;
 }
 
-.search-btn i {
-    font-size: 16px;
+/* Make sure recipe results have proper spacing */
+.recipe-results {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
 }
 
-
-/* Prevent text selection and remove focus outlines on clickable elements */
-.heart-icon-container,
-.category {
-    user-select: none;
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* IE/Edge */
-    cursor: pointer;
+.recipe-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-
-
-/* Hero Section */
-.hero{
-position: relative;
-text-align: center;
-color: white;
+.recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
-.hero-image {
+.recipe-card img {
     width: 100%;
-    height: 600px; /* Set a specific height */
-    object-fit: cover; /* Maintain aspect ratio and cover the area */
-    animation: fadeIn 2s ease-in-out;
-    position: relative;
-    z-index: 1; /* Keep image below text */
-}
-.hero-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2; /* Ensure text stays above image */
+    height: 150px;
+    object-fit: cover;
 }
 
-.hero-text h2 {
-    font-size: 32px;
+.recipe-card h3 {
+    font-size: 1.2rem;
+    margin: 10px;
+    color: #333;
+}
+
+.recipe-card a {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 8px 12px;
+    background-color: #ff4d4d;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.recipe-card a:hover {
+    background-color: #e65a50;
+}
+
+/* Add to your CSS */
+.search-form {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+#searchInput {
+    padding: 10px;
+    width: 300px;
+    margin-right: 10px;
+}
+
+
+
+/* Header Styles */
+
+.logo {
     font-family: 'Abril Fatface', cursive;
+    font-size: 30px;
+    margin: 0;
+    color: #000;
+    line-height: 1;
 }
 
-.hero-text p {
-    font-size: 16px;
+.tagline {
+    color: #000;
+    font-size: 12px;
+    font-family: 'Montserrat', sans-serif;
+    margin: 5px 0 0 0;
+    text-align: left;
+    align-self: flex-start;
 }
 
-/* Define the fade-in animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+.loading {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.2rem;
+    color: #000000;
+    animation: pulse 1.5s infinite;
 }
 
-/* Apply the fade-in animation to the hero image */
-.hero-image {
-    width: 100%;
-    height: 600px; /* Set a specific height */
-    display: block; /* Ensure the image is displayed as a block element */
-    object-fit: cover; /* Maintain aspect ratio and cover the area */
-    z-index:1; /* Ensure the image stays below the text */
-    position: relative; /* Ensure the image is positioned correctly */
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
 }
 
-.explore-btn {
+.error-message {
+    color: #dc3545;
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+/* Footer Styles */
+.footer {
     background-color: black;
     color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    opacity: 9.5;
-}
-
-/* Categories */
-.popular-categories {
+    padding: 40px 0;
     text-align: center;
-    padding: 50px 20px;
-    background: #ffffff;
+    position: relative;
 }
 
-.popular-categories h2 { /*this is the text that says popular categories/* */
-    font-size: 28px;
-    font-family: 'Abril Fatface', cursive;
-    color: black;
-}
-
-.popular-categories p {
-    font-size: 16px;
-    color: black;
-    margin-bottom: 30px;
-}
-
-.categories-container {
+.footer-container {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    justify-content: space-around;
     flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.category-card {
-    background: white;
-    padding: 15px;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 250px;
-    transition: transform 0.3s;
-}
-
-.category-card:hover {
-    transform: translateY(-5px);
-    background: linear-gradient(135deg, #ff4d4d, #ff99cc); /* Hot pinkish gradient */
-}
-
-.category-card img {
-    width:100%;
-    border-radius:10px;
-}
-
-.category-content h3 { /*this is for the writing inside categories/**/
-    font-size: 20px;
-    color: black;
-    margin: 10px 0 5px;
-}
-
-.category-content p {
-    font-size: 14px;
-    color: #333;
+.footer-logo h2 {
+    font-family: 'Abril Fatface', cursive;
+    font-size: 28px;
     margin-bottom: 10px;
 }
 
-.rating {
-    font-size: 18px;
-    color: gold;
-}
-
-
-.why-foodify {
-    text-align: center;
-    padding: 50px 20px;
-    background:#fff; /* Pink to white gradient */
-    color: black;
-}
-
-.why-foodify h2 { /*this is the text that says why foodify/* */
-    font-size: 28px;
-    font-family: 'Abril Fatface', cursive;
-    color: black;
-    margin-bottom: 40px; /* Increase the bottom margin to add space */
-    margin-top: 30; /* Adjust the top margin to move the text higher */
-    font-weight:500;
-}
-
-.benefits-container {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-}
-
-.benefit {
-    text-align: center;
-    max-width: 250px;
-}
-
-.benefit i {
-    font-size: 30px;
-    color: #ff4d4d;
-    margin-bottom: 10px;
-}
-
-.benefit h3 {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.benefit p {
+.footer-logo p {
     font-size: 14px;
-    color: #555;
-}
-
-.foodify-philosophy {
-    text-align: center;
-    padding: 40px 20px;
-    background:#fff; /* White to pink gradient */
-    color: black;
     font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
 }
 
-.foodify-philosophy h2 { /*this is the text that says delicious recipes that inspire/* */
-    font-size: 20px;
-    font-family: 'Abril Fatface', cursive;
-    margin-bottom: 10px;
-    font-weight:500;
-}
-
-.highlight-text { /*easy-to-make text*/
+.footer-links h3,
+.footer-socials h3 {
     font-size: 18px;
-    font-weight: bold;
-    color: #ff4d4d;
-}
-
-.as-seen-in {
-    background-color: #ffffff;
-    padding:0;
-    margin: 0;
-}
-.as-seen-in h2 { /*this is the text that says as seen in/* */
-    font-size: 0.5rem;
-    font-weight:200;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #000000;
-    justify-content: center;
-    text-align: center;
-    margin: 0;
-    font-family: 'Gill Sans', sans-serif;
-}
-.carousel {
-    display: flex;
-    overflow: hidden;
-    white-space: nowrap;
-    position: relative;
-    width: 100%;
-    margin:20px 0 0 0; /*this ensures that the logos run till the very end of the screen/**/
-    background-color: rgb(255, 255, 255); /* Set the background color to white */
-}
-.carousel-track {
-    display: flex;
-    animation: scroll 30s linear infinite;
-    width: calc(120px * 20 + 15px * 20); /* Adjust the width to fit all images and margins */
-}
-.carousel img {
-    width: 120px; /* Set a fixed width */
-    height: 50px; /* Set a fixed height */
-    object-fit: cover; /* Ensure the image covers the area without distortion */
-    margin: 0 15px;
-}
-
-@keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); } /* Adjust the translateX value to match half the width of the track */
-}
-/* Pause the animation on hover */
-.carousel:hover .carousel-track {
-    animation-play-state: paused;
-}
-
-
-
-.philosophy-text {
-    font-size: 14px;
-    color: #555;
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.5;
-}
-
-
-.logo-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-/*this is the second hero section*/
-
-.hero-section2 { /*this controls the entire hero section*/
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-    color: white;
-    width: 100%; /* Ensure the section takes the full width */
-    height: 300px; /* Set a fixed height for the hero section */
-    background-color: white; /* Set the background to white */
-}
-
-.hero-section2 video { /*this controls show the video appears in the hero section */
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    padding: 20 20px;
-    z-index: 1; /* Ensure video stays below text */
-    background-color: #f8f8f8;
-}
-
-
-.hero-content2 { /*this controls the text that appears in the hero section*/
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 2.5rem;
-    font-weight: bold;
-    padding: 20px;
-    border-radius: 10px;
-    z-index: 2; /* Ensure text appears above video */
-    color:#f8f8f8; /* Set the text color to white */
-}
-/*
-.recipe-heading { /*this is the featured recipes heading
-    text-align: center;
-    padding: 50px 20px;
-    background: #ffffff;
-    margin: 0 auto;
-}
-
-
-.recipe-grid { /*this controls the recipe boxes
-    display: flex; /* Change to inline flex 
-    gap: 30px; /* Space between items 
-    max-width: 20%;
-    margin: auto;
-    justify-content: center; /* Center items */
-   /*  transform: translateY(-50%); */ /* Adjust vertical alignment 
-}
-
-
-.recipe-item {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    height: 50%;
-    width: 50%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    flex: 0 0 auto; /* Prevent flex items from growing or shrinking 
-    animation: fadeInScale 0.5s ease-in-out forwards; /* Apply fade-in animation on load 
-    opacity: 0; /* Start with opacity 0 for animation 
-    transition: transform 0.3s ease; /* Smooth transition for hover effect 
-}
-
-.recipe-item .recipe-outline { /*this controls the <p> or outline of the featured recipe
-    color:#000000; 
-}
-
-.recipe-item h3 { /* this is the decriptive name of the feautured recipes
-    margin: 10px 0 5px;
-    color: #333;
-    
-}
-
-.recipe-item img { /*this is for the images inside the recipe items
-    width: 100%;
-    border-radius: 10px;
-    height: 100%;
-   
-}
-
-/* Animation for fade-in and scale effect on load 
-@keyframes fadeInScale {
-    0% {
-        opacity: 0;
-        transform: scale(0.95);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}*
-*/
-
-/* Newsletter Section */ /*this is the whole section around newsletter section*/
-.newsletter-section {
-    background-color: #ffffff; /* Light pink background */
-    color: rgb(0, 0, 0);
-    text-align: center;
-    padding: 30px 20px;
-
-}
-
-.newsletter-section h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.newsletter-section p {
-    font-size: 16px;
     margin-bottom: 15px;
 }
 
-.newsletter-form {
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin: 8px 0;
+}
+
+.footer-links ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    transition: color 0.3s;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+}
+
+.footer-links ul li a:hover {
+    color: #ff99cc;
+}
+
+.social-icons {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
+    gap: 15px;
 }
 
-.newsletter-form input {
-    padding: 10px;
-    border-radius: 5px;
-    width: 250px;
-    font-size: 16px;
-}
-
-.newsletter-form button {
-    background-color: #ff4d4d; /* Red button */
+.social-icon {
     color: white;
-    padding: 10px 15px;
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+.social-icon:hover {
+    color: #ff99cc;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+}
+
+/* Style both buttons */
+.favorite-btn, .view-recipe-btn {
+    padding: 8px 16px;
     border: none;
-    border-radius: 5px;
-    font-size: 16px;
+    border-radius: 4px;
     cursor: pointer;
-    transition: 0.3s;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 }
 
-.newsletter-form button:hover {
-    background-color: white;
-    color: #ff4d4d;
-    border: 1px solid #ff4d4d;
+/* Specific style for favorite button */
+.favorite-btn {
+    background-color: #f0f0f0;
+    color: #333;
 }
 
-
-
-
-
-
-
-/* Footer Styles */
-    /* Styles the entire footer section */
-    .footer {
-        background-color: black; /* Sets background color */
-        color: white; /* Sets text color */
-        padding: 40px 0; /* Adds vertical padding */
-        text-align: center; /* Centers all content */
-    }
-
-    /* Styles the footer container for layout structure */
-    .footer-container {
-        display: flex; /* Uses flexbox for flexible layout */
-        justify-content: space-around; /* Evenly distributes sections */
-        flex-wrap: wrap; /* Ensures responsiveness */
-        max-width: 1200px; /* Limits maximum width */
-        margin: 0 auto; /* Centers the footer */
-    }
-
-    /* Styles the website branding in the footer */
-    .footer-logo h2 {
-        font-family: 'Abril Fatface', cursive; /* Sets a stylish font */
-        font-size: 28px; /* Adjusts font size */
-        margin-bottom: 10px; /* Adds spacing below */
-    }
-
-    .footer-logo p {
-        font-size: 14px; /* Sets tagline font size */
-    }
-
-    /* Styles titles for quick links and social media sections */
-    .footer-links h3,
-    .footer-socials h3 {
-        font-size: 18px; /* Adjusts title font size */
-        margin-bottom: 15px; /* Adds spacing below */
-    }
-
-    /* Styles the quick links list */
-    .footer-links ul {
-        list-style: none; /* Removes bullet points */
-        padding: 0; /* Removes padding */
-    }
-
-    .footer-links ul li {
-        margin: 8px 0; /* Adds spacing between items */
-    }
-
-    /* Styles quick links text */
-    .footer-links ul li a {
-        text-decoration: none; /* Removes underline */
-        color: white; /* Sets text color */
-        font-size: 14px; /* Adjusts font size */
-        transition: color 0.3s; /* Smooth color transition on hover */
-    }
-
-    .footer-links ul li a:hover {
-        color: #ff99cc; /* Changes color on hover */
-    }
-
-    /* Styles the social media icons container */
-    .social-icons {
-        display: flex; /* Aligns icons in a row */
-        justify-content: center; /* Centers icons */
-        gap: 15px; /* Adds spacing between icons */
-    }
-
-    /* Styles the social media icons */
-    .social-icon {
-        color: white; /* Sets icon color */
-        font-size: 20px; /* Adjusts icon size */
-        transition: color 0.3s; /* Smooth transition effect */
-    }
-
-    .social-icon:hover {
-        color: #ff99cc; /* Changes color on hover */
-    }
-
-    /* Styles the footer bottom section */
-    .footer-bottom {
-        margin-top: 20px; /* Adds spacing above */
-        font-size: 14px; /* Adjusts text size */
-    }
+/* Style when favorited */
+.favorite-btn.favorited {
+    background-color: #ff4040;
+    color: white;
+}
 
