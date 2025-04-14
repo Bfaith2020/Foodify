@@ -1,0 +1,20 @@
+.foodify-philosophy {
+    text-align: center;
+    padding: 40px 20px;
+    background:#fff; /* White to pink gradient */
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.foodify-philosophy h2 { /*this is the text that says delicious recipes that inspire/* */
+    font-size: 20px;
+    font-family: 'Abril Fatface', cursive;
+    margin-bottom: 10px;
+    font-weight:500;
+}
+
+.highlight-text { /*easy-to-make text*/
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff4d4d;
+}

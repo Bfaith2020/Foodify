@@ -1,0 +1,45 @@
+.as-seen-in {
+    background-color: #ffffff;
+    padding:0;
+    margin: 0;
+}
+.as-seen-in h2 { /*this is the text that says as seen in/* */
+    font-size: 0.5rem;
+    font-weight:200;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #000000;
+    justify-content: center;
+    text-align: center;
+    margin: 0;
+    font-family: 'Gill Sans', sans-serif;
+}
+.carousel {
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    width: 100%;
+    margin:20px 0 0 0; /*this ensures that the logos run till the very end of the screen/**/
+    background-color: rgb(255, 255, 255); /* Set the background color to white */
+}
+.carousel-track {
+    display: flex;
+    animation: scroll 30s linear infinite;
+    width: calc(120px * 20 + 15px * 20); /* Adjust the width to fit all images and margins */
+}
+.carousel img {
+    width: 120px; /* Set a fixed width */
+    height: 50px; /* Set a fixed height */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
+    margin: 0 15px;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Adjust the translateX value to match half the width of the track */
+}
+/* Pause the animation on hover */
+.carousel:hover .carousel-track {
+    animation-play-state: paused;
+}

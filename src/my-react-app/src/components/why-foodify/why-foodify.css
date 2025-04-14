@@ -1,0 +1,44 @@
+
+.why-foodify {
+    text-align: center;
+    padding: 50px 20px;
+    background:#fff; /* Pink to white gradient */
+    color: black;
+}
+
+.why-foodify h2 { /*this is the text that says why foodify/* */
+    font-size: 28px;
+    font-family: 'Abril Fatface', cursive;
+    color: black;
+    margin-bottom: 40px; /* Increase the bottom margin to add space */
+    margin-top: 30; /* Adjust the top margin to move the text higher */
+    font-weight:500;
+}
+
+.benefits-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.benefit {
+    text-align: center;
+    max-width: 250px;
+}
+
+.benefit i {
+    font-size: 30px;
+    color: #ff4d4d;
+    margin-bottom: 10px;
+}
+
+.benefit h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.benefit p {
+    font-size: 14px;
+    color: #555;
+}

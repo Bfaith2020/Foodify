@@ -1,0 +1,61 @@
+
+.hero{
+    position: relative;
+    text-align: center;
+    color: white;
+    }
+    
+    .hero-image {
+        width: 100%;
+        height: 600px; /* Set a specific height */
+        object-fit: cover; /* Maintain aspect ratio and cover the area */
+        animation: fadeIn 2s ease-in-out;
+        position: relative;
+        z-index: 1; /* Keep image below text */
+    }
+    .hero-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2; /* Ensure text stays above image */
+    }
+    
+    .hero-text h2 {
+        font-size: 32px;
+        font-family: 'Abril Fatface', cursive;
+    }
+    
+    .hero-text p {
+        font-size: 16px;
+    }
+    
+    /* Define the fade-in animation */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    
+    /* Apply the fade-in animation to the hero image */
+    .hero-image {
+        width: 100%;
+        height: 600px; /* Set a specific height */
+        display: block; /* Ensure the image is displayed as a block element */
+        object-fit: cover; /* Maintain aspect ratio and cover the area */
+        z-index:1; /* Ensure the image stays below the text */
+        position: relative; /* Ensure the image is positioned correctly */
+    }
+    
+    .explore-btn {
+        background-color: black;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        opacity: 9.5;
+    }
