@@ -23,10 +23,10 @@ const Navbar = () => {
           DELICIOUS RECIPES THAT INSPIRE<span className="trademark">™</span>
         </p>
       </div>
-
-      <div className="heart-icon-container text-red-500 text-xl">
+<Link className="link" to={"/favorites"}> <div className="heart-icon-container text-red-500 text-xl">
         <i className="fas fa-heart"></i>
-      </div>
+      </div> </Link>
+     
 
       {/* 🔍 Search Bar */}
       <div className="search-bar-container">

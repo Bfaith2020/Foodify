@@ -4,6 +4,7 @@ import Preferences from "./my-react-app/src/components/preferences/Preferences";
 import Trending from "./my-react-app/src/components/Trending/Trending";
 import Search from "./my-react-app/src/components/pages/Search";
 import Blog from "./my-react-app/src/components/blog/Blog";
+import Favorites from "./my-react-app/Favorites/Favorites";
 import CookingTips from "./my-react-app/src/components/Cooking-tips/CookingTips";
 
 const Navbar = lazy(() => import("./my-react-app/src/components/navbar/Navbar"));
@@ -251,6 +252,7 @@ const AppContent = () => {
       <Routes>
       
       <Route path="/Search" element={<Search />} />
+      <Route path="/favorites" element={<Favorites />} />
       <Route
           path="/"
           element={
