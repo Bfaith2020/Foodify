@@ -1,3 +1,8 @@
+.hero2-container{
+        display: flex;
+        justify-content: center;
+}
+
 
 .hero-section2 { /*this controls the entire hero section*/
     position: relative;
@@ -23,75 +28,17 @@
 
 
 .hero-content2 { /*this controls the text that appears in the hero section*/
-    position: absolute;
+    position: relative;
+    display: flex;
+    align-items: center;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    right: 20%;
+     color: black; /*remove when done */
+    /* transform: translate(-50%, -50%); */
     font-size: 2.5rem;
     font-weight: bold;
     padding: 20px;
     border-radius: 10px;
     z-index: 2; /* Ensure text appears above video */
-    color:#f8f8f8; /* Set the text color to white */
+    /* color:#f8f8f8;  */
 }
-/*
-.recipe-heading { /*this is the featured recipes heading
-    text-align: center;
-    padding: 50px 20px;
-    background: #ffffff;
-    margin: 0 auto;
-}
-
-
-.recipe-grid { /*this controls the recipe boxes
-    display: flex; /* Change to inline flex 
-    gap: 30px; /* Space between items 
-    max-width: 20%;
-    margin: auto;
-    justify-content: center; /* Center items */
-   /*  transform: translateY(-50%); */ /* Adjust vertical alignment 
-}
-
-
-.recipe-item {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    height: 50%;
-    width: 50%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    flex: 0 0 auto; /* Prevent flex items from growing or shrinking 
-    animation: fadeInScale 0.5s ease-in-out forwards; /* Apply fade-in animation on load 
-    opacity: 0; /* Start with opacity 0 for animation 
-    transition: transform 0.3s ease; /* Smooth transition for hover effect 
-}
-
-.recipe-item .recipe-outline { /*this controls the <p> or outline of the featured recipe
-    color:#000000; 
-}
-
-.recipe-item h3 { /* this is the decriptive name of the feautured recipes
-    margin: 10px 0 5px;
-    color: #333;
-    
-}
-
-.recipe-item img { /*this is for the images inside the recipe items
-    width: 100%;
-    border-radius: 10px;
-    height: 100%;
-   
-}
-
-/* Animation for fade-in and scale effect on load 
-@keyframes fadeInScale {
-    0% {
-        opacity: 0;
-        transform: scale(0.95);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}*
-*/
