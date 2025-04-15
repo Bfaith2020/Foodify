@@ -1,6 +1,8 @@
 import React, { Suspense, lazy, useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Preferences from "./my-react-app/src/components/preferences/Preferences";
+import { SearchProvider } from './SearchContext';
+import ErrorBoundary from './ErrorBoundary'; // Import the ErrorBoundary component
 import Trending from "./my-react-app/src/components/Trending/Trending";
 import Search from "./my-react-app/src/components/pages/Search";
 import Blog from "./my-react-app/src/components/blog/Blog";
@@ -16,7 +18,6 @@ const FoodifyPhilosophy = lazy(() => import("./my-react-app/src/components/philo
 const Hero2 = lazy(() => import("./my-react-app/src/components/hero2/Hero2"));
 const Newsletter = lazy(() => import("./my-react-app/src/components/newsletter/Newsletter"));
 const Footer = lazy(() => import("./my-react-app/src/components/footer/Footer"));
-/* const Search = lazy(() => import("./pages/Search")); */
 
 const API_KEY = '99332e3f-87af-4409-b742-08afad63177c';
 const BASE_URL = 'https://forkify-api.herokuapp.com/api/v2/recipes';
@@ -240,20 +241,32 @@ function SearchRecipes() {
   );
 }
 
+function App() {
+  return (
+    <Router>
+      <ErrorBoundary>
+        <SearchProvider>
+          <Suspense fallback={<div>Loading...</div>}>
+            <AppContent />
+          </Suspense>
+        </SearchProvider>
+      </ErrorBoundary>
+    </Router>
+  );
+}
+
 // The main App content with routing and lazy-loaded components
 const AppContent = () => {
   const location = useLocation();
 
   return (
     <>
-     
       {location.pathname !== "/Search" && <Navbar />}
 
       <Routes>
-      
-      <Route path="/Search" element={<Search />} />
-      <Route path="/favorites" element={<Favorites />} />
-      <Route
+        <Route path="/Search" element={<Search />} />
+        <Route path="/favorites" element={<Favorites />} />
+        <Route
           path="/"
           element={
             <>
@@ -277,16 +290,5 @@ const AppContent = () => {
     </>
   );
 };
-
-// The main App component using Router and Suspense.
-function App() {
-  return (
-    <Router>
-      <Suspense fallback={<div>Loading...</div>}>
-        <AppContent />
-      </Suspense>
-    </Router>
-  );
-}
 
 export default App;

@@ -1,23 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { removeFavorite } from '../../favoritesSlice';
 
 const Favorites = () => {
-  // Initialize the favorites state from localStorage
-  const [favorites, setFavorites] = useState([]);
+  const favorites = useSelector(state => state.favorites.favorites);
+  const dispatch = useDispatch();
 
-  // Load favorites when the component mounts
-  useEffect(() => {
-    const storedFavorites = JSON.parse(localStorage.getItem('foodifyFavorites')) || [];
-    setFavorites(storedFavorites);
-  }, []);
-
-  // Remove a favorite recipe
   const handleRemoveFavorite = (idToRemove) => {
-    const updatedFavorites = favorites.filter(recipe => recipe.id !== idToRemove);
-    localStorage.setItem('foodifyFavorites', JSON.stringify(updatedFavorites));
-    setFavorites(updatedFavorites);
+    dispatch(removeFavorite(idToRemove));
   };
 
-  // Fetch and view recipe details
   const handleViewRecipe = async (recipeId) => {
     try {
       const response = await fetch(`https://forkify-api.herokuapp.com/api/v2/recipes/${recipeId}?key=99332e3f-87af-4409-b742-08afad63177c`);
